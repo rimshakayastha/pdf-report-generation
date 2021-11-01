@@ -5,7 +5,7 @@ import datetime
 class PDF(FPDF):
     def header(self):
         # Arial bold 15
-        self.set_font('Arial', 'B', 15)
+        self.set_font('Arial', '', 10)
         # Move to the right
         self.cell(80)
         # Title
@@ -28,9 +28,12 @@ class PDF(FPDF):
         self.cell(0, 10, 'Page ' + str(self.page_no()) + '/{nb}', 0, 0, 'C')
 
     def report_title_details(self):
-        self.set_y(220)
-        self.set_font('Arial', 'B', 14)
-        self.multi_cell(190, 10, 'The My Personal Health Assistant (MyPHA) for Essilor\n Clinical Risk Reduction: Identifying Challenges and Taking Action!\n For the time Period: January 1st 2020 to June 30th 2021\n '+day, 1, 'C',False)
+        self.set_y(225)
+        self.set_font('Helvetica', 'B', 14)
+        self.multi_cell(190, 10, 'The My Personal Health Assistant (MyPHA) for Essilor\n \
+          Clinical Risk Reduction: Identifying Challenges and Taking Action!\n \
+            For the time period: January 1st 2020 to June 30th 2021\n \
+              '+day, 1, 'C',False)
 
     def logos(self):
         self.set_y(-15)
@@ -74,8 +77,26 @@ class PDF(FPDF):
         positionx=positionx+12
         self.cell(6, positionx,'  2. Understanding the NMEs (Diseases) ............................................................................4', 0, 0, 'L', 0)
 
+    def first_page(self):
+      pdf.add_page()
+      pdf.image("ScreenShot2021-10-18at12_30_45PM.png", 0, 0, 210, 222)
+      pdf.report_title_details()
+      pdf.logos()
 
-      
+    def second_page(self):
+      pdf.add_page()
+      pdf.set_font('Arial', 'B', 12)
+      pdf.cell(0,0,'Health Risk Analysis and Reduction Report',0, 0, 'L', 0)
+      pdf.ln(4)
+      pdf.chapter_title('Contents')
+      pdf.contents()
+
+    def third_page(self):
+      pdf.add_page()
+      pdf.chapter_title('Executive Summary')
+      pdf.set_font('Arial', 'B', 16)
+      pdf.content()
+      pdf.output('test.pdf', 'F')
 
 if os.path.exists("test.txt"):
   os.remove("test.txt")
@@ -85,24 +106,10 @@ day=now.strftime("%A, %B %d, %Y")
 
 pdf=PDF()
 #Cover page
-pdf.add_page()
-pdf.image("ScreenShot2021-10-18at12_30_45PM.png", 0, 0, 210, 210)
-pdf.report_title_details()
-pdf.logos()
+pdf.first_page()
 
 #Contents page
-pdf.add_page()
-pdf.set_font('Arial', 'B', 12)
-pdf.cell(0,0,'Health Risk Analysis and Reduction Report',0, 0, 'L', 0)
-pdf.ln(4)
-pdf.chapter_title('Contents')
-pdf.contents()
-
-
+pdf.second_page()
 
 #Executive summary page
-pdf.add_page()
-pdf.chapter_title('Executive Summary')
-pdf.set_font('Arial', 'B', 16)
-pdf.content()
-pdf.output('test.pdf', 'F')
+pdf.third_page()
