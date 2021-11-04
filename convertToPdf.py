@@ -84,6 +84,61 @@ class PDF(FPDF):
         positionx=positionx+12
         self.cell(6, positionx, '  2. Understanding the NMEs (Diseases) ..............................................................................', 0, 0, 'L', 0)
         self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  3. Identifying the Employees and their Families (members) that Need to Act.................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  Engaging & Educating Members................................................................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  4. Making Contact..............................................................................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  5. PHA Increasing Health Literacy & Risk Reducing Action! ..............................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  6. Matching Members with Key Resources: Ending Medical Homelessness: Engaging Primary Care\
+(PCP)......................................................................................................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  7. Closing Gaps in Care & Following Safe Pathways ..........................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  8. Ongoing Keys for Success ..............................................................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, 'The MyPHA ROI..........................................................................................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  Time .......................................................................................................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  Energy & Stress = Distraction & Presenteeism......................................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  Convenience – Keeping Up Positive Momentum .................................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  Primary Care – A 21% Return – Solving Medical Homelessness .........................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  Medications – Cost & Compliance.......................................................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  Specialists – Avoiding the “More Medicine is Better Medicine” Mentality........................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  Imaging ................................................................................................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  The Importance of Using Data – Data Leads to Wisdom.....................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  ROI Analysis of MyPHA ........................................................................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
+        positionx=positionx+12
+        self.cell(6, positionx, '  Conclusion – Doing What We Know ........................................................................................................', 0, 0, 'L', 0)
+        self.cell(0,positionx,'4',0, 0, 'R', 0)
 
     def first_page(self):
       pdf.add_page()
@@ -104,8 +159,7 @@ class PDF(FPDF):
     def third_page(self):
       pdf.add_page()
       pdf.chapter_title('Executive Summary')
-      
-      pdf.set_font('Arial', 'B', 16)
+      # pdf.set_font('Arial', 'B', 16)
       pdf.content()
       pdf.output('test.pdf', 'F')
 
